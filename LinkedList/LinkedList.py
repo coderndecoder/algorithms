@@ -21,12 +21,14 @@ class LinkedList:
             curr.next = l
             curr = l
     
-    def printList(self):
+    def __str__(self):
         if not self.head:
             print("Linked List is Empty")
-            return
+            return None
         node = self.head    
+        result = ""
+        
         while node:
-            print(node.value, end=" ")
+            result += f"{node.value} "
             node = node.next
-        print("\n")
+        return result

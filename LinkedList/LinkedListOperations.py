@@ -2,24 +2,6 @@ from LinkedList import LinkedList, Node
 
 class LinkedListOperations:
     
-    def create_a_list(arr)->Node:
-        head = Node(arr[0])
-        curr = head
-        i = 1
-        while i < len(arr):
-            l = Node(arr[i]) 
-            curr.next = l
-            curr = l
-            i+=1
-            
-        return head
-    
-    def printList(node: Node):
-        while node is not None:
-            print(node.value, end=" ")
-            node = node.next
-        print("\n")
-
     def replace_node(ll: LinkedList, old_value, new_value):
         print("Replacing ", old_value)
         node = ll.head
@@ -53,22 +35,40 @@ class LinkedListOperations:
             if node.next and node.next.value == value:
                 node.next = node.next.next       
             node = node.next
+            
+    def create_a_list(arr)->Node:
+        head = Node(arr[0])
+        curr = head
+        i = 1
+        while i < len(arr):
+            l = Node(arr[i]) 
+            curr.next = l
+            curr = l
+            i+=1
+            
+        return head
+    
+    def printList(node: Node):
+        while node is not None:
+            print(node.value, end=" ")
+            node = node.next
+        print("\n")
+
 
 
 # Test the methods on LinkedList class
 ll = LinkedList([1,2,3,4,1,5,1])
-print("List: ")
-ll.printList()     
+print(ll)
 
 
 # Replace particular number
 LinkedListOperations.replace_node(ll, 1, 9)
-ll.printList()
+print(ll)
 
 # Insert number at specific index
 LinkedListOperations.insert_node(ll, 8, 1)
-ll.printList()
+print(ll)
 
 # Remove number from list
 LinkedListOperations.remove_node(ll, 9)
-ll.printList()
+print(ll)
