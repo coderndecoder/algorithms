@@ -1,82 +1,32 @@
 # LinkedList 
+from typing import List
 
 class Node:
     def __init__(self, value):
         self.value = value
         self.next = None
         
-def printList(node: Node):
-    while node is not None:
-        print(node.value, end=" ")
-        node = node.next
-    print("\n")
-        
-def create_a_list(arr)->Node:
-    head = Node(arr[0])
-    curr = head
-    i = 1
-    while i < len(arr):
-        l = Node(arr[i]) 
-        curr.next = l
-        curr = l
-        i+=1
-        
-    return head
-
-def replace_node(node: Node, old_value, new_value):
-    print("Replacing ", old_value)
-    while node:
-        if node.value == old_value:
-            node.value = new_value
-        node = node.next
-        
-def insert_node(node: Node, value, index) -> Node:
-    temp = node
-    print("Inserting ", value)
-    for i in range(index-1):
-        node = node.next
+class LinkedList:
     
-    t = node.next
-    node.next = Node(value)    
-    node.next.next = t
-    
-    return temp
-    
-
-def remove_node(node: Node, value) -> Node:
-    temp = node
-    print("Removing ", value)
-    # first node
-    if node.value == value:
-        node = node.next
-        temp = node
+    def __init__(self):
+        self.head = None
         
-    while node:
-        if node.next and node.next.value == value:
-            node.next = node.next.next       
-        node = node.next
+    def __init__(self, arr: List[int]):
+        self.head = Node(arr[0])
+        curr = self.head
+        size = len(arr)
         
-    return temp
-
-
-# Test the methods on list        
-
-head = create_a_list([1,2,3,4,1,5,1])
-print("List: ")
-printList(head)     
-
-# Replace particular number
-replace_node(head, 1, 9)
-printList(head)
-
-# Insert number at specific index
-head = insert_node(head, 8, 1)
-printList(head)
-
-# # Remove number from list
-head = remove_node(head, 9)
-printList(head)
-
-
-
-
+        for i in range(1, size):
+            l = Node(arr[i]) 
+            curr.next = l
+            curr = l
+    
+    def printList(self):
+        if not self.head:
+            print("Linked List is Empty")
+            return
+        node = self.head    
+        while node:
+            print(node.value, end=" ")
+            node = node.next
+        print("\n")
