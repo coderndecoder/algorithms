@@ -14,9 +14,9 @@ class LinkedList:
     def __init__(self, arr: List[int]):
         self.head = Node(arr[0])
         curr = self.head
-        size = len(arr)
+        self.size = len(arr)
         
-        for i in range(1, size):
+        for i in range(1, self.size):
             l = Node(arr[i]) 
             curr.next = l
             curr = l
@@ -32,3 +32,6 @@ class LinkedList:
             result += f"{node.value} "
             node = node.next
         return result
+    
+    def __len__(self):
+        return self.size

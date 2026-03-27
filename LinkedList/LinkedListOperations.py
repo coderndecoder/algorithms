@@ -17,8 +17,11 @@ class LinkedListOperations:
             node = node.next
         
         t = node.next
-        node.next = Node(value)    
+        n = Node(value) 
+        node.next = n   
         node.next.next = t
+        
+        return n
 
     def remove_node(ll: LinkedList, value) -> Node:
         node = ll.head
@@ -55,20 +58,21 @@ class LinkedListOperations:
         print("\n")
 
 
+if __name__ == "__main__":
 
-# Test the methods on LinkedList class
-ll = LinkedList([1,2,3,4,1,5,1])
-print(ll)
+    # Test the methods on LinkedList class
+    ll = LinkedList([1,2,3,4,1,5,1])
+    print(ll)
 
 
-# Replace particular number
-LinkedListOperations.replace_node(ll, 1, 9)
-print(ll)
+    # Replace particular number
+    LinkedListOperations.replace_node(ll, 1, 9)
+    print(ll)
 
-# Insert number at specific index
-LinkedListOperations.insert_node(ll, 8, 1)
-print(ll)
+    # Insert number at specific index
+    LinkedListOperations.insert_node(ll, 8, 1)
+    print(ll)
 
-# Remove number from list
-LinkedListOperations.remove_node(ll, 9)
-print(ll)
+    # Remove number from list
+    LinkedListOperations.remove_node(ll, 9)
+    print(ll)
